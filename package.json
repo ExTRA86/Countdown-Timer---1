@@ -17,8 +17,6 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://extra86.github.io/Countdown-Timer---1/"
+  }
 }
