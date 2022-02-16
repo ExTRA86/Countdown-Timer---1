@@ -1,38 +1,36 @@
-import Countdown from 'react-countdown'
-import { useState } from 'react'
+import Countdown from 'react-countdown';
+import { useState } from 'react';
 
 function App() {
-  const [value1, setValue1] = useState('')
-  const [value2, setValue2] = useState('')
+  const [value1, setValue1] = useState('');
+  const [value2, setValue2] = useState('');
 
-  const [show, setShow] = useState(false)
-  const [end, setEnd] = useState(false)
+  const [show, setShow] = useState(false);
+  const [end, setEnd] = useState(false);
 
   const switcher = () => {
     if (!show && !end) {
-      setShow(true)
-      setEnd(false)
+      setShow(true);
+      setEnd(false);
     } else if (show && !end) {
-      setShow(false)
-      setEnd(true)
+      setShow(false);
+      setEnd(true);
     } else {
-      setShow(true)
-      setEnd(false)
+      setShow(true);
+      setEnd(false);
     }
-  }
+  };
 
-  let time = value2.split(':')
-  let date = new Date(value1)
-  let currentDate = new Date()
+  let time = value2.split(':');
+  let date = new Date(value1);
+  let currentDate = new Date();
 
   let newDate = Math.ceil(
     date.getTime() +
       (time[0] * 3600 + time[1] * 60) * 1000 -
-      (currentDate.getTime() + currentDate.getTimezoneOffset() * 60 * -1000)
-  )
+      (currentDate.getTime() + currentDate.getTimezoneOffset() * 60 * -1000),
+  );
 
-  console.log('s' + show)
-  console.log('e' + end)
   return (
     <>
       <div className='container'>
@@ -40,7 +38,7 @@ function App() {
       </div>
 
       <div className='wrapper'>
-        <h2>Введите нужную дату и время </h2>
+        <h2>Введите нужную дату и время</h2>
         <div>
           <label> Укажите дату </label>
           <input
@@ -51,7 +49,7 @@ function App() {
         </div>
 
         <div style={{ marginTop: 10 }}>
-          <label> Укажите время </label>
+          <label>Укажите время</label>
           <input
             type='time'
             value={value2}
@@ -66,7 +64,7 @@ function App() {
             onClick={() => {
               value1 && value2 && newDate > 0
                 ? switcher()
-                : alert('Введите корректную дату')
+                : alert('Введите корректную дату');
             }}
           >
             Показать отсчет времени
@@ -131,8 +129,8 @@ function App() {
         )}
       </div>
       {end ? (
-        <div style={{ marginTop: 50, fontSize: 80 }}>
-          Установленная дата наступила!
+        <div className='clock'>
+          <h1>Установленная дата наступила!</h1>
         </div>
       ) : (
         ''
@@ -141,7 +139,7 @@ function App() {
         <p>Countdown Timer Widget 2022</p>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
